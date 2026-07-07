@@ -1,4 +1,6 @@
-use crate::http_utils::{check_content_type, MIME_TYPE_JSON, MIME_TYPE_JWKS};
+use crate::http_utils::{
+    check_content_type, MIME_TYPE_JSON, MIME_TYPE_JSON_AND_JWKS, MIME_TYPE_JWKS,
+};
 use crate::types::jwk::{JsonWebKey, JsonWebKeyId, JwsSigningAlgorithm};
 use crate::{
     AsyncHttpClient, DiscoveryError, HttpRequest, HttpResponse, JsonWebKeyUse, SyncHttpClient,
@@ -133,7 +135,7 @@ where
         http::Request::builder()
             .uri(url.to_string())
             .method(Method::GET)
-            .header(ACCEPT, HeaderValue::from_static(MIME_TYPE_JSON))
+            .header(ACCEPT, HeaderValue::from_static(MIME_TYPE_JSON_AND_JWKS))
             .body(Vec::new())
     }
 

@@ -1,9 +1,11 @@
 use crate::AccessToken;
 
+use constcat::concat;
 use http::header::{HeaderMap, HeaderName, HeaderValue, AUTHORIZATION, CONTENT_TYPE};
 
 pub const MIME_TYPE_JSON: &str = "application/json";
 pub const MIME_TYPE_JWKS: &str = "application/jwk-set+json";
+pub const MIME_TYPE_JSON_AND_JWKS: &str = concat!(MIME_TYPE_JSON, ',', MIME_TYPE_JWKS);
 pub const MIME_TYPE_JWT: &str = "application/jwt";
 
 pub const BEARER: &str = "Bearer";
